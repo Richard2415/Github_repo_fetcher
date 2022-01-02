@@ -2,7 +2,7 @@ const express = require('express')
 const app = express()
 const db = require('../database/mongo.js')
 const api = require('./github.js')
-const port = process.env.PORT || 3000
+
 
 app.use(express.static('./client/dist'))
 app.use(express.json())
@@ -49,6 +49,8 @@ app.delete('/del', async (req, res) => {
   }
 })
 
-app.listen(port, () => {
-  console.log(`Listening at port ${port}.`)
+let PORT = process.env.PORT || 3000
+
+app.listen(PORT, () => {
+  console.log(`Listening at port ${PORT}.`)
 })
